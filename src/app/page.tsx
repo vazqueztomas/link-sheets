@@ -1,4 +1,5 @@
 import api from "@/api";
+import React from "react";
 
 export default async function Home() {
   const links = await api.links.fetch();
