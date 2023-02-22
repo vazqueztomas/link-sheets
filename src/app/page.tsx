@@ -1,15 +1,16 @@
 import api from "@/api";
+import Link from "next/link";
 import React from "react";
 
 export default async function Home() {
-  const links = await api.links.fetch();
+  const users = await api.user.list();
 
   return (
     <main>
       <h1>Tomas</h1>
       <ul>
-      {links.map((link) => <li key = {link.label}>
-        <a href = {link.url}>{link.label}</a>
+      {users.map((user) => <li key = {user.url}>
+        <Link href = {`/${user.slug}`}>{user.slug}</Link>
       </li>)}
       </ul>
     </main>
